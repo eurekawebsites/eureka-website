@@ -59,9 +59,9 @@
     .nav-logo {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
-    .nav-logo-bird { font-size: 1.6rem; line-height: 1; }
+    .nav-logo-bird { width: 36px; height: 36px; object-fit: contain; }
     .nav-logo-text {
       font-family: var(--mono);
       font-weight: 700;
@@ -364,7 +364,8 @@
     .project-thumb-cards      { background: linear-gradient(135deg, #1a1a1a 0%, #2a1a2a 100%); }
     .project-thumb-screenshot {
       background-size: cover;
-      background-position: top center;
+      background-position: center 6%;
+      height: 240px;
     }
     .project-thumb-screenshot::after {
       content: '';
@@ -486,7 +487,7 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#hero">
-      <span class="nav-logo-bird">🦜</span>
+      <img class="nav-logo-bird" src="eureka-bird-head.png" alt="Eureka bird" />
       <span class="nav-logo-text">Eureka<span>.</span></span>
     </a>
     <div class="nav-right">
@@ -739,7 +740,7 @@
   <!-- FOOTER -->
   <footer>
     <a class="nav-logo" href="#hero">
-      <span class="nav-logo-bird">🦜</span>
+      <img class="nav-logo-bird" src="eureka-bird-head.png" alt="Eureka bird" />
       <span class="nav-logo-text">Eureka<span>.</span></span>
     </a>
     <p class="footer-copy" data-i18n="footer.copy">© 2026 Eureka. All rights reserved.</p>
