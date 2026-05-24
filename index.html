@@ -58,9 +58,28 @@
       transition: background 0.3s;
     }
 
-    .nav-logo img {
-      height: 36px;
-      width: auto;
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-logo-bird {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .nav-logo-text {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+
+    .nav-logo-text span {
+      color: var(--coral);
     }
 
     .nav-links {
@@ -643,7 +662,8 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#hero">
-      <img src="eureka-banner.png" alt="Eureka Websites" />
+      <span class="nav-logo-bird">🦜</span>
+      <span class="nav-logo-text">Eureka<span>.</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#services">Services</a></li>
@@ -899,7 +919,10 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-logo">
-      <img src="eureka-banner.png" alt="Eureka Websites" />
+      <a class="nav-logo" href="#hero">
+        <span class="nav-logo-bird">🦜</span>
+        <span class="nav-logo-text">Eureka<span>.</span></span>
+      </a>
     </div>
     <p class="footer-copy">© 2026 Eureka Websites. All rights reserved.</p>
     <ul class="footer-links">
