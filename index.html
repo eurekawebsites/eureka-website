@@ -391,6 +391,18 @@
     .project-thumb-tappi      { background: linear-gradient(135deg, #1a2a1a 0%, #1a4a2a 100%); }
     .project-thumb-vamp       { background: linear-gradient(135deg, #1a0a1e 0%, #3d1a5e 100%); }
     .project-thumb-mercado    { background: linear-gradient(135deg, #080f13 0%, #1a0a0a 100%); }
+
+    .project-thumb-screenshot {
+      background-size: cover;
+      background-position: top center;
+      position: relative;
+    }
+    .project-thumb-screenshot::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(24,27,34,0.7) 100%);
+    }
     .project-thumb-cards      { background: linear-gradient(135deg, #1a1a1a 0%, #2a1a2a 100%); }
 
     .project-thumb-label {
@@ -851,33 +863,32 @@
       <!-- Mercado Negro — Website -->
       <div class="project-card fade-up">
         <div class="project-thumb project-thumb-mercado">
-          🍸
+          🍰
           <span class="project-thumb-label">website</span>
         </div>
         <div class="project-body">
           <div class="project-tags">
-            <span class="tag tag-coral">Nightlife</span>
+            <span class="tag tag-coral">Catering</span>
             <span class="tag tag-cyan">Website</span>
           </div>
           <h3>Mercado Negro — Site</h3>
-          <p>Dark, moody website for an upscale cocktail bar. Custom design that matches the brand's underground, sophisticated atmosphere.</p>
+          <p>Elegant website for a repostería, catering, and private chef business. Dark, sophisticated design that matches the brand's upscale aesthetic.</p>
           <a href="https://eurekawebsites.github.io/mercado-negro/" target="_blank" class="project-link">Visit site →</a>
         </div>
       </div>
 
       <!-- Mercado Negro — Mobile App -->
       <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-mercado">
-          📱
+        <div class="project-thumb project-thumb-screenshot" style="background-image:url('mercado-negro-mobile-app.jpg');">
           <span class="project-thumb-label">mobile web app</span>
         </div>
         <div class="project-body">
           <div class="project-tags">
-            <span class="tag tag-coral">Nightlife</span>
+            <span class="tag tag-coral">Catering</span>
             <span class="tag tag-cyan">Mobile App</span>
           </div>
           <h3>Mercado Negro — App</h3>
-          <p>Non-native mobile app built for Mercado Negro — runs in the browser, installs like a native app, and works offline. No App Store needed.</p>
+          <p>Private mobile web app for internal use — manages recipes, ingredients, and cost calculations. Runs in the browser, installs like a native app, no App Store needed.</p>
           <span style="font-size:0.78rem;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">🔒 Private project</span>
         </div>
       </div>
