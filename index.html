@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eureka Websites — Web & App Development</title>
+  <title>Eureka — Digital Products Studio</title>
   <meta name="description" content="We build websites, web apps, and digital products for businesses ready to grow online." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -37,7 +37,6 @@
       overflow-x: hidden;
     }
 
-    /* ── SCROLLBAR ── */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--darker); }
     ::-webkit-scrollbar-thumb { background: var(--coral); border-radius: 3px; }
@@ -55,7 +54,6 @@
       background: rgba(17,19,24,0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
-      transition: background 0.3s;
     }
 
     .nav-logo {
@@ -63,12 +61,7 @@
       align-items: center;
       gap: 8px;
     }
-
-    .nav-logo-bird {
-      font-size: 1.6rem;
-      line-height: 1;
-    }
-
+    .nav-logo-bird { font-size: 1.6rem; line-height: 1; }
     .nav-logo-text {
       font-family: var(--mono);
       font-weight: 700;
@@ -77,17 +70,20 @@
       text-transform: uppercase;
       color: var(--text);
     }
+    .nav-logo-text span { color: var(--coral); }
 
-    .nav-logo-text span {
-      color: var(--coral);
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
     .nav-links {
       display: flex;
       gap: 32px;
       list-style: none;
+      align-items: center;
     }
-
     .nav-links a {
       font-size: 0.85rem;
       font-weight: 500;
@@ -96,19 +92,46 @@
       color: var(--muted);
       transition: color 0.2s;
     }
-
     .nav-links a:hover { color: var(--coral); }
-
     .nav-cta {
-      background: var(--coral);
+      background: var(--coral) !important;
       color: #fff !important;
       padding: 8px 20px;
       border-radius: 6px;
       font-weight: 600 !important;
-      color: white !important;
       transition: background 0.2s, transform 0.15s !important;
     }
-    .nav-cta:hover { background: #d94e52 !important; transform: translateY(-1px); color: white !important; }
+    .nav-cta:hover { background: #d94e52 !important; transform: translateY(-1px); }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    .lang-btn {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      padding: 4px 9px;
+      border-radius: 4px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+    .lang-btn.active {
+      background: var(--coral);
+      color: #fff;
+    }
 
     .nav-hamburger {
       display: none;
@@ -137,26 +160,18 @@
       position: relative;
       overflow: hidden;
     }
-
     .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
+      position: absolute; inset: 0; z-index: 0;
       background:
         radial-gradient(ellipse 80% 60% at 20% 50%, rgba(240,96,100,0.12) 0%, transparent 60%),
         radial-gradient(ellipse 60% 60% at 80% 30%, rgba(159,236,244,0.10) 0%, transparent 55%),
         radial-gradient(ellipse 50% 50% at 60% 80%, rgba(244,181,172,0.08) 0%, transparent 50%);
     }
-
     .hero-noise {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-      opacity: 0.03;
+      position: absolute; inset: 0; z-index: 0; opacity: 0.03;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
       background-size: 200px 200px;
     }
-
     .hero-content { position: relative; z-index: 1; max-width: 860px; }
 
     .hero-eyebrow {
@@ -182,7 +197,6 @@
       letter-spacing: -0.02em;
       margin-bottom: 28px;
     }
-
     h1 .accent { color: var(--coral); }
     h1 .accent-cyan { color: var(--cyan); }
 
@@ -214,7 +228,6 @@
       cursor: pointer;
       border: none;
     }
-
     .btn-primary {
       background: var(--coral);
       color: #fff;
@@ -225,7 +238,6 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 32px rgba(240,96,100,0.45);
     }
-
     .btn-outline {
       background: transparent;
       color: var(--text);
@@ -244,11 +256,7 @@
       margin-top: 72px;
       flex-wrap: wrap;
     }
-
-    .stat {
-      text-align: center;
-    }
-
+    .stat { text-align: center; }
     .stat-num {
       font-size: 2.2rem;
       font-weight: 700;
@@ -256,7 +264,6 @@
       font-family: var(--mono);
       line-height: 1;
     }
-
     .stat-label {
       font-size: 0.8rem;
       color: var(--muted);
@@ -265,10 +272,8 @@
       margin-top: 6px;
     }
 
-    /* ── SECTION SHARED ── */
-    section {
-      padding: 100px clamp(20px, 6vw, 120px);
-    }
+    /* ── SECTIONS ── */
+    section { padding: 100px clamp(20px, 6vw, 120px); }
 
     .section-eyebrow {
       font-family: var(--mono);
@@ -278,7 +283,6 @@
       color: var(--coral);
       margin-bottom: 16px;
     }
-
     .section-title {
       font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 700;
@@ -286,25 +290,21 @@
       line-height: 1.1;
       margin-bottom: 16px;
     }
-
     .section-sub {
       font-size: 1.05rem;
       color: var(--muted);
       max-width: 540px;
       line-height: 1.7;
     }
-
     .section-header { margin-bottom: 64px; }
 
     /* ── SERVICES ── */
     #services { background: var(--darker); }
-
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 24px;
     }
-
     .service-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -314,7 +314,6 @@
       position: relative;
       overflow: hidden;
     }
-
     .service-card::before {
       content: '';
       position: absolute;
@@ -324,42 +323,19 @@
       opacity: 0;
       transition: opacity 0.25s;
     }
-
-    .service-card:hover {
-      border-color: rgba(240,96,100,0.35);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
-    }
-
+    .service-card:hover { border-color: rgba(240,96,100,0.35); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.4); }
     .service-card:hover::before { opacity: 1; }
-
-    .service-icon {
-      font-size: 2.2rem;
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    .service-card h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .service-card p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
+    .service-icon { font-size: 2.2rem; margin-bottom: 20px; display: block; }
+    .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; }
+    .service-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
 
     /* ── PORTFOLIO ── */
     #portfolio { background: var(--dark); }
-
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 28px;
     }
-
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -369,12 +345,7 @@
       display: flex;
       flex-direction: column;
     }
-
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 56px rgba(0,0,0,0.5);
-      border-color: rgba(240,96,100,0.3);
-    }
+    .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 56px rgba(0,0,0,0.5); border-color: rgba(240,96,100,0.3); }
 
     .project-thumb {
       height: 200px;
@@ -385,17 +356,15 @@
       position: relative;
       overflow: hidden;
     }
-
     .project-thumb-coordenada { background: linear-gradient(135deg, #1a3a4a 0%, #0d5c73 100%); }
     .project-thumb-learnflow  { background: linear-gradient(135deg, #1a1a3e 0%, #2d2d7a 100%); }
     .project-thumb-tappi      { background: linear-gradient(135deg, #1a2a1a 0%, #1a4a2a 100%); }
     .project-thumb-vamp       { background: linear-gradient(135deg, #1a0a1e 0%, #3d1a5e 100%); }
     .project-thumb-mercado    { background: linear-gradient(135deg, #080f13 0%, #1a0a0a 100%); }
-
+    .project-thumb-cards      { background: linear-gradient(135deg, #1a1a1a 0%, #2a1a2a 100%); }
     .project-thumb-screenshot {
       background-size: cover;
       background-position: top center;
-      position: relative;
     }
     .project-thumb-screenshot::after {
       content: '';
@@ -403,238 +372,93 @@
       inset: 0;
       background: linear-gradient(to bottom, transparent 50%, rgba(24,27,34,0.7) 100%);
     }
-    .project-thumb-cards      { background: linear-gradient(135deg, #1a1a1a 0%, #2a1a2a 100%); }
 
     .project-thumb-label {
       position: absolute;
-      bottom: 12px;
-      right: 14px;
+      bottom: 12px; right: 14px;
       font-family: var(--mono);
       font-size: 0.65rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.35);
+      z-index: 1;
     }
 
-    .project-body {
-      padding: 28px 28px 24px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
+    .project-body { padding: 28px 28px 24px; flex: 1; display: flex; flex-direction: column; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
     .tag {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
-      border: 1px solid;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 20px; border: 1px solid;
     }
+    .tag-coral { color: var(--coral); border-color: rgba(240,96,100,0.35); background: rgba(240,96,100,0.08); }
+    .tag-cyan  { color: var(--cyan);  border-color: rgba(159,236,244,0.3);  background: rgba(159,236,244,0.07); }
+    .tag-pink  { color: var(--pink);  border-color: rgba(244,181,172,0.3);  background: rgba(244,181,172,0.07); }
 
-    .tag-coral  { color: var(--coral); border-color: rgba(240,96,100,0.35); background: rgba(240,96,100,0.08); }
-    .tag-cyan   { color: var(--cyan);  border-color: rgba(159,236,244,0.3); background: rgba(159,236,244,0.07); }
-    .tag-pink   { color: var(--pink);  border-color: rgba(244,181,172,0.3); background: rgba(244,181,172,0.07); }
-
-    .project-body h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .project-body p {
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.7;
-      flex: 1;
-      margin-bottom: 20px;
-    }
+    .project-body h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
+    .project-body p  { font-size: 0.88rem; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 20px; }
 
     .project-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--coral);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: gap 0.2s;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.82rem; font-weight: 600; color: var(--coral);
+      letter-spacing: 0.04em; text-transform: uppercase; transition: gap 0.2s;
     }
-
     .project-link:hover { gap: 10px; }
+    .project-private {
+      font-size: 0.78rem; font-weight: 600; color: var(--muted);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
 
     /* ── TESTIMONIALS ── */
     #testimonials { background: var(--darker); }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 28px;
-    }
-
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
     .testimonial-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 36px 32px;
-      position: relative;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 36px 32px; position: relative;
     }
-
     .testimonial-card::before {
-      content: '"';
-      position: absolute;
-      top: 20px; right: 28px;
-      font-size: 5rem;
-      line-height: 1;
-      color: var(--coral);
-      opacity: 0.2;
-      font-family: Georgia, serif;
+      content: '"'; position: absolute; top: 20px; right: 28px;
+      font-size: 5rem; line-height: 1; color: var(--coral); opacity: 0.2; font-family: Georgia, serif;
     }
-
-    .stars {
-      display: flex;
-      gap: 4px;
-      margin-bottom: 20px;
-    }
-
+    .stars { display: flex; gap: 4px; margin-bottom: 20px; }
     .star { color: #FFB800; font-size: 1rem; }
-
-    .testimonial-card p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 24px;
-      font-style: italic;
-    }
-
-    .reviewer {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .reviewer-avatar {
-      width: 42px; height: 42px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
+    .testimonial-card p { font-size: 0.95rem; color: var(--muted); line-height: 1.75; margin-bottom: 24px; font-style: italic; }
+    .reviewer { display: flex; align-items: center; gap: 14px; }
+    .reviewer-avatar { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1rem; flex-shrink: 0; }
     .avatar-s { background: linear-gradient(135deg, var(--coral), var(--pink)); }
     .avatar-c { background: linear-gradient(135deg, var(--cyan), #5bcfdb); color: var(--dark); }
-
-    .reviewer-name {
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    .reviewer-source {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 2px;
-    }
+    .reviewer-name { font-weight: 600; font-size: 0.9rem; }
+    .reviewer-source { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
 
     /* ── CONTACT ── */
     #contact { background: var(--dark); }
-
-    .contact-inner {
-      max-width: 680px;
-    }
-
-    .contact-options {
-      display: flex;
-      gap: 20px;
-      margin-top: 48px;
-      flex-wrap: wrap;
-    }
-
+    .contact-inner { max-width: 680px; }
+    .contact-options { display: flex; gap: 20px; margin-top: 48px; flex-wrap: wrap; }
     .contact-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 28px 32px;
-      flex: 1;
-      min-width: 220px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      transition: border-color 0.2s, transform 0.15s;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+      padding: 28px 32px; flex: 1; min-width: 220px; display: flex; align-items: center;
+      gap: 16px; transition: border-color 0.2s, transform 0.15s;
     }
-
-    .contact-card:hover {
-      border-color: var(--coral);
-      transform: translateY(-2px);
-    }
-
+    .contact-card:hover { border-color: var(--coral); transform: translateY(-2px); }
     .contact-icon { font-size: 1.8rem; }
-
-    .contact-info-label {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .contact-info-value {
-      font-weight: 600;
-      font-size: 0.95rem;
-      color: var(--coral);
-    }
+    .contact-info-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 4px; }
+    .contact-info-value { font-weight: 600; font-size: 0.95rem; color: var(--coral); }
 
     /* ── FOOTER ── */
     footer {
-      background: var(--darker);
-      border-top: 1px solid var(--border);
+      background: var(--darker); border-top: 1px solid var(--border);
       padding: 40px clamp(20px, 6vw, 120px);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;
     }
-
-    .footer-logo img { height: 28px; }
-
-    .footer-copy {
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-    }
-
-    .footer-links a {
-      font-size: 0.8rem;
-      color: var(--muted);
-      transition: color 0.2s;
-    }
-
+    .footer-copy { font-size: 0.8rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: 0.8rem; color: var(--muted); transition: color 0.2s; }
     .footer-links a:hover { color: var(--coral); }
 
     /* ── DIVIDER ── */
     .divider {
-      width: 100%;
-      height: 1px;
+      width: 100%; height: 1px;
       background: linear-gradient(90deg, transparent, var(--coral), var(--cyan), transparent);
       opacity: 0.25;
-      margin: 0;
     }
 
     /* ── MOBILE ── */
@@ -642,31 +466,19 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .nav-links.open {
-        display: flex;
-        flex-direction: column;
-        position: fixed;
-        top: 64px; left: 0; right: 0;
-        background: var(--darker);
-        padding: 28px 32px;
-        gap: 24px;
-        border-bottom: 1px solid var(--border);
-        z-index: 199;
+        display: flex; flex-direction: column;
+        position: fixed; top: 64px; left: 0; right: 0;
+        background: var(--darker); padding: 28px 32px; gap: 24px;
+        border-bottom: 1px solid var(--border); z-index: 199;
       }
       .nav-links.open a { font-size: 1rem; color: var(--text); }
       .hero-stats { gap: 28px; }
       footer { flex-direction: column; text-align: center; }
     }
 
-    /* ── FADE-IN ANIMATION ── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    /* ── FADE-IN ── */
+    .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
@@ -677,14 +489,20 @@
       <span class="nav-logo-bird">🦜</span>
       <span class="nav-logo-text">Eureka<span>.</span></span>
     </a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Work</a></li>
-      <li><a href="#testimonials">Reviews</a></li>
-      <li><a href="#contact" class="nav-cta">Let's talk</a></li>
-    </ul>
-    <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
-      <span></span><span></span><span></span>
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#portfolio" data-i18n="nav.work">Work</a></li>
+        <li><a href="#testimonials" data-i18n="nav.reviews">Reviews</a></li>
+        <li><a href="#contact" class="nav-cta" data-i18n="nav.cta">Let's talk</a></li>
+      </ul>
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btnEN" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" id="btnES" onclick="setLang('es')">ES</button>
+      </div>
+      <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
+        <span></span><span></span><span></span>
+      </div>
     </div>
   </nav>
 
@@ -694,33 +512,32 @@
     <div class="hero-noise"></div>
     <div class="hero-content">
       <div class="hero-eyebrow">
-        <span>●</span> Digital Products Studio
+        <span>●</span> <span data-i18n="hero.eyebrow">Digital Products Studio</span>
       </div>
       <h1>
-        We build things<br/>
-        for the <span class="accent">web</span> that<br/>
-        actually <span class="accent-cyan">work.</span>
+        <span data-i18n="hero.h1a">We build things</span><br/>
+        <span data-i18n="hero.h1b">for the</span> <span class="accent" data-i18n="hero.h1c">web</span> <span data-i18n="hero.h1d">that</span><br/>
+        <span data-i18n="hero.h1e">actually</span> <span class="accent-cyan" data-i18n="hero.h1f">work.</span>
       </h1>
-      <p class="hero-sub">
-        From landing pages to full-stack web apps — we design, build, and launch
-        digital products that help businesses grow.
+      <p class="hero-sub" data-i18n="hero.sub">
+        From landing pages to full-stack web apps — we design, build, and launch digital products that help businesses grow.
       </p>
       <div class="hero-actions">
-        <a href="#portfolio" class="btn btn-primary">See our work →</a>
-        <a href="#contact" class="btn btn-outline">Get a quote</a>
+        <a href="#portfolio" class="btn btn-primary" data-i18n="hero.cta1">See our work →</a>
+        <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Get a quote</a>
       </div>
       <div class="hero-stats">
         <div class="stat">
           <div class="stat-num">10+</div>
-          <div class="stat-label">Projects live</div>
+          <div class="stat-label" data-i18n="stats.projects">Projects live</div>
         </div>
         <div class="stat">
           <div class="stat-num">5★</div>
-          <div class="stat-label">Client reviews</div>
+          <div class="stat-label" data-i18n="stats.reviews">Client reviews</div>
         </div>
         <div class="stat">
           <div class="stat-num">MX·US</div>
-          <div class="stat-label">Clients served</div>
+          <div class="stat-label" data-i18n="stats.clients">Clients served</div>
         </div>
       </div>
     </div>
@@ -731,35 +548,35 @@
   <!-- SERVICES -->
   <section id="services">
     <div class="section-header fade-up">
-      <div class="section-eyebrow">What we do</div>
-      <h2 class="section-title">Full-stack digital<br/>services</h2>
-      <p class="section-sub">Whatever your business needs online — we build it, ship it, and keep it running.</p>
+      <div class="section-eyebrow" data-i18n="services.eyebrow">What we do</div>
+      <h2 class="section-title" data-i18n="services.title">Full-stack digital<br/>services</h2>
+      <p class="section-sub" data-i18n="services.sub">Whatever your business needs online — we build it, ship it, and keep it running.</p>
     </div>
     <div class="services-grid">
       <div class="service-card fade-up">
         <span class="service-icon">🌐</span>
-        <h3>Websites</h3>
-        <p>Fast, beautiful websites built to convert visitors into customers. Custom-designed, mobile-first, and ready to rank.</p>
+        <h3 data-i18n="s1.title">Websites</h3>
+        <p data-i18n="s1.desc">Fast, beautiful websites built to convert visitors into customers. Custom-designed, mobile-first, and ready to rank.</p>
       </div>
       <div class="service-card fade-up">
         <span class="service-icon">⚙️</span>
-        <h3>Web Applications</h3>
-        <p>Complex tools, portals, and platforms. Booking systems, course portals, dashboards — if it runs in a browser, we build it.</p>
+        <h3 data-i18n="s2.title">Web Applications</h3>
+        <p data-i18n="s2.desc">Complex tools, portals, and platforms. Booking systems, course portals, dashboards — if it runs in a browser, we build it.</p>
       </div>
       <div class="service-card fade-up">
         <span class="service-icon">📱</span>
-        <h3>Mobile Web Apps</h3>
-        <p>App-like experiences that run in the browser — no App Store required. Works on any device, installed like a native app.</p>
+        <h3 data-i18n="s3.title">Mobile Web Apps</h3>
+        <p data-i18n="s3.desc">App-like experiences that run in the browser — no App Store required. Works on any device, installed like a native app.</p>
       </div>
       <div class="service-card fade-up">
         <span class="service-icon">🛒</span>
-        <h3>Online Stores</h3>
-        <p>Custom e-commerce solutions. Sell products, manage inventory, and accept payments without paying platform fees forever.</p>
+        <h3 data-i18n="s4.title">Online Stores</h3>
+        <p data-i18n="s4.desc">Custom e-commerce solutions. Sell products, manage inventory, and accept payments without paying platform fees forever.</p>
       </div>
       <div class="service-card fade-up">
         <span class="service-icon">🪪</span>
-        <h3>TapPi Digital Cards</h3>
-        <p>NFC-powered digital business cards. One tap shares your contact, portfolio, and links — no app needed on the other end.</p>
+        <h3 data-i18n="s5.title">TapPi Digital Cards</h3>
+        <p data-i18n="s5.desc">NFC-powered digital business cards. One tap shares your contact, portfolio, and links — no app needed on the other end.</p>
       </div>
     </div>
   </section>
@@ -769,144 +586,89 @@
   <!-- PORTFOLIO -->
   <section id="portfolio">
     <div class="section-header fade-up">
-      <div class="section-eyebrow">Our work</div>
-      <h2 class="section-title">Projects we're<br/>proud of</h2>
-      <p class="section-sub">A selection of sites and apps we've built for real clients, live and running.</p>
+      <div class="section-eyebrow" data-i18n="portfolio.eyebrow">Our work</div>
+      <h2 class="section-title" data-i18n="portfolio.title">Projects we're<br/>proud of</h2>
+      <p class="section-sub" data-i18n="portfolio.sub">A selection of sites and apps we've built for real clients, live and running.</p>
     </div>
     <div class="portfolio-grid">
 
-      <!-- Coordenada Viajes -->
       <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-coordenada">
-          ✈️
-          <span class="project-thumb-label">website + quote tool</span>
-        </div>
+        <div class="project-thumb project-thumb-coordenada">✈️<span class="project-thumb-label" data-i18n="p.websiteQuote">website + quote tool</span></div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-coral">Travel</span>
-            <span class="tag tag-cyan">Web App</span>
-          </div>
+          <div class="project-tags"><span class="tag tag-coral">Travel</span><span class="tag tag-cyan">Web App</span></div>
           <h3>Coordenada Viajes</h3>
-          <p>Full travel agency site for a Mexico City agency — with a custom interactive quote generator for packages, itineraries, and pricing.</p>
-          <a href="https://coordenadaviajes.com" target="_blank" class="project-link">Visit site →</a>
+          <p data-i18n="p.coordenada">Full travel agency site for a Mexico City agency — with a custom interactive quote generator for packages, itineraries, and pricing.</p>
+          <a href="https://coordenadaviajes.com" target="_blank" class="project-link" data-i18n="link.visitSite">Visit site →</a>
         </div>
       </div>
 
-      <!-- Mario Franco — Website -->
       <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-learnflow">
-          🧠
-          <span class="project-thumb-label">website</span>
-        </div>
+        <div class="project-thumb project-thumb-learnflow">🧠<span class="project-thumb-label" data-i18n="p.website">website</span></div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-cyan">EdTech</span>
-            <span class="tag tag-pink">Website</span>
-          </div>
+          <div class="project-tags"><span class="tag tag-cyan">EdTech</span><span class="tag tag-pink">Website</span></div>
           <h3>Mario Franco — Site</h3>
-          <p>Marketing and landing site for a Mexican educator and coach. Drives traffic and enrollments to his course platform.</p>
-          <a href="https://mario-franco-courses.web.app" target="_blank" class="project-link">Visit site →</a>
+          <p data-i18n="p.marioSite">Marketing and landing site for a Mexican educator and coach. Drives traffic and enrollments to his course platform.</p>
+          <a href="https://mario-franco-courses.web.app" target="_blank" class="project-link" data-i18n="link.visitSite">Visit site →</a>
         </div>
       </div>
 
-      <!-- Mario Franco — Course Platform -->
       <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-learnflow">
-          🎓
-          <span class="project-thumb-label">web app</span>
-        </div>
+        <div class="project-thumb project-thumb-learnflow">🎓<span class="project-thumb-label" data-i18n="p.webApp">web app</span></div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-cyan">EdTech</span>
-            <span class="tag tag-coral">Web App</span>
-          </div>
+          <div class="project-tags"><span class="tag tag-cyan">EdTech</span><span class="tag tag-coral">Web App</span></div>
           <h3>Mario Franco — Courses</h3>
-          <p>Full course platform with enrollment flows, video lessons, student dashboards, and MXN payments. Built as a white-label LearnFlow product.</p>
-          <a href="https://mario-franco-courses.web.app" target="_blank" class="project-link">Open platform →</a>
+          <p data-i18n="p.marioCourses">Full course platform with enrollment flows, video lessons, student dashboards, and MXN payments. Built as a white-label LearnFlow product.</p>
+          <a href="https://mario-franco-courses.web.app" target="_blank" class="project-link" data-i18n="link.openPlatform">Open platform →</a>
         </div>
       </div>
 
-      <!-- Vamp Stamps — Website -->
       <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-vamp">
-          🩸
-          <span class="project-thumb-label">website + booking</span>
-        </div>
+        <div class="project-thumb project-thumb-vamp">🩸<span class="project-thumb-label" data-i18n="p.websiteBooking">website + booking</span></div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-pink">Art Studio</span>
-            <span class="tag tag-coral">Booking</span>
-          </div>
+          <div class="project-tags"><span class="tag tag-pink">Art Studio</span><span class="tag tag-coral">Booking</span></div>
           <h3>Vamp Stamps — Site</h3>
-          <p>Portfolio and booking site for a NYC-based tattoo artist and illustrator. Showcases work and handles commission inquiries.</p>
-          <a href="https://vamp-stamps.web.app" target="_blank" class="project-link">Visit site →</a>
+          <p data-i18n="p.vampSite">Portfolio and booking site for a NYC-based tattoo artist and illustrator. Showcases work and handles commission inquiries.</p>
+          <a href="https://vamp-stamps.web.app" target="_blank" class="project-link" data-i18n="link.visitSite">Visit site →</a>
         </div>
       </div>
 
-      <!-- Vamp Stamps — Store -->
       <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-vamp">
-          🛍️
-          <span class="project-thumb-label">online store</span>
-        </div>
+        <div class="project-thumb project-thumb-vamp">🛍️<span class="project-thumb-label" data-i18n="p.onlineStore">online store</span></div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-pink">E-commerce</span>
-            <span class="tag tag-coral">Art Studio</span>
-          </div>
+          <div class="project-tags"><span class="tag tag-pink">E-commerce</span><span class="tag tag-coral">Art Studio</span></div>
           <h3>Vamp Stamps — Store</h3>
-          <p>Custom online store integrated into the Vamp Stamps platform — sells prints, merch, and digital art commissions.</p>
-          <a href="https://vamp-stamps.web.app" target="_blank" class="project-link">Visit store →</a>
+          <p data-i18n="p.vampStore">Custom online store integrated into the Vamp Stamps platform — sells prints, merch, and digital art commissions.</p>
+          <a href="https://vamp-stamps.web.app" target="_blank" class="project-link" data-i18n="link.visitStore">Visit store →</a>
         </div>
       </div>
 
-      <!-- Mercado Negro — Website -->
       <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-mercado">
-          🍰
-          <span class="project-thumb-label">website</span>
-        </div>
+        <div class="project-thumb project-thumb-mercado">🍰<span class="project-thumb-label" data-i18n="p.website">website</span></div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-coral">Catering</span>
-            <span class="tag tag-cyan">Website</span>
-          </div>
+          <div class="project-tags"><span class="tag tag-coral">Catering</span><span class="tag tag-cyan">Website</span></div>
           <h3>Mercado Negro — Site</h3>
-          <p>Elegant website for a repostería, catering, and private chef business. Dark, sophisticated design that matches the brand's upscale aesthetic.</p>
-          <a href="https://eurekawebsites.github.io/mercado-negro/" target="_blank" class="project-link">Visit site →</a>
+          <p data-i18n="p.mercadoSite">Elegant website for a repostería, catering, and private chef business. Dark, sophisticated design that matches the brand's upscale aesthetic.</p>
+          <a href="https://eurekawebsites.github.io/mercado-negro/" target="_blank" class="project-link" data-i18n="link.visitSite">Visit site →</a>
         </div>
       </div>
 
-      <!-- Mercado Negro — Mobile App -->
       <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-screenshot" style="background-image:url('mercado-negro-mobile-app.jpg');">
-          <span class="project-thumb-label">mobile web app</span>
-        </div>
+        <div class="project-thumb project-thumb-screenshot" style="background-image:url('mercado-negro-mobile-app.jpg');"><span class="project-thumb-label" data-i18n="p.mobileApp">mobile web app</span></div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-coral">Catering</span>
-            <span class="tag tag-cyan">Mobile App</span>
-          </div>
+          <div class="project-tags"><span class="tag tag-coral">Catering</span><span class="tag tag-cyan">Mobile App</span></div>
           <h3>Mercado Negro — App</h3>
-          <p>Private mobile web app for internal use — manages recipes, ingredients, and cost calculations. Runs in the browser, installs like a native app, no App Store needed.</p>
-          <span style="font-size:0.78rem;font-weight:600;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;">🔒 Private project</span>
+          <p data-i18n="p.mercadoApp">Private mobile web app for internal use — manages recipes, ingredients, and cost calculations. Runs in the browser, installs like a native app, no App Store needed.</p>
+          <span class="project-private" data-i18n="link.private">🔒 Private project</span>
         </div>
       </div>
 
-      <!-- Digital Business Cards -->
       <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-cards">
-          💳
-          <span class="project-thumb-label">digital cards</span>
-        </div>
+        <div class="project-thumb project-thumb-cards">💳<span class="project-thumb-label" data-i18n="p.digitalCards">digital cards</span></div>
         <div class="project-body">
-          <div class="project-tags">
-            <span class="tag tag-pink">NFC</span>
-            <span class="tag tag-coral">TapPi</span>
-          </div>
-          <h3>Digital Business Cards</h3>
-          <p>Custom-designed digital business card pages paired with NFC tags. One tap shares contact info, social links, and portfolio — no app needed.</p>
-          <a href="https://www.coordenadaviajes.com/tarjeta" target="_blank" class="project-link">See live example →</a>
+          <div class="project-tags"><span class="tag tag-pink">NFC</span><span class="tag tag-coral">TapPi</span></div>
+          <h3 data-i18n="p.cardsTitle">Digital Business Cards</h3>
+          <p data-i18n="p.cardsDesc">Custom-designed digital business card pages paired with NFC tags. One tap shares contact info, social links, and portfolio — no app needed.</p>
+          <a href="https://www.coordenadaviajes.com/tarjeta" target="_blank" class="project-link" data-i18n="link.liveExample">See live example →</a>
         </div>
       </div>
 
@@ -918,33 +680,29 @@
   <!-- TESTIMONIALS -->
   <section id="testimonials">
     <div class="section-header fade-up">
-      <div class="section-eyebrow">Reviews</div>
-      <h2 class="section-title">What clients<br/>say</h2>
+      <div class="section-eyebrow" data-i18n="testimonials.eyebrow">Reviews</div>
+      <h2 class="section-title" data-i18n="testimonials.title">What clients<br/>say</h2>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card fade-up">
-        <div class="stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-        </div>
-        <p>"They created an organizational website that streamlined many parts of our professional operations. The result exceeded our expectations — clean, functional, and exactly what we needed."</p>
+        <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p data-i18n="t1.quote">"They created an organizational website that streamlined many parts of our professional operations. The result exceeded our expectations — clean, functional, and exactly what we needed."</p>
         <div class="reviewer">
           <div class="reviewer-avatar avatar-s">S</div>
           <div>
             <div class="reviewer-name">Sullivan Carmona</div>
-            <div class="reviewer-source">Google Review</div>
+            <div class="reviewer-source" data-i18n="t.source">Google Review</div>
           </div>
         </div>
       </div>
       <div class="testimonial-card fade-up">
-        <div class="stars">
-          <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-        </div>
-        <p>"Great skill in organizing information and delivering a personalized visual proposal. They really listened to what we wanted and translated it into something that feels exactly right for our brand."</p>
+        <div class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></div>
+        <p data-i18n="t2.quote">"Great skill in organizing information and delivering a personalized visual proposal. They really listened to what we wanted and translated it into something that feels exactly right for our brand."</p>
         <div class="reviewer">
           <div class="reviewer-avatar avatar-c">C</div>
           <div>
             <div class="reviewer-name">Carla Ramos</div>
-            <div class="reviewer-source">Google Review</div>
+            <div class="reviewer-source" data-i18n="t.source">Google Review</div>
           </div>
         </div>
       </div>
@@ -956,22 +714,22 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="contact-inner fade-up">
-      <div class="section-eyebrow">Contact</div>
-      <h2 class="section-title">Ready to build<br/>something?</h2>
-      <p class="section-sub">Tell us what you need. We'll get back to you fast with a clear plan and a real quote — no fluff.</p>
+      <div class="section-eyebrow" data-i18n="contact.eyebrow">Contact</div>
+      <h2 class="section-title" data-i18n="contact.title">Ready to build<br/>something?</h2>
+      <p class="section-sub" data-i18n="contact.sub">Tell us what you need. We'll get back to you fast with a clear plan and a real quote — no fluff.</p>
       <div class="contact-options">
         <a href="mailto:aster@eurekawebsites.tech" class="contact-card">
           <span class="contact-icon">✉️</span>
           <div>
-            <div class="contact-info-label">Email us</div>
+            <div class="contact-info-label" data-i18n="contact.emailLabel">Email us</div>
             <div class="contact-info-value">aster@eurekawebsites.tech</div>
           </div>
         </a>
-        <a href="https://wa.me/525657917967" target="_blank" class="contact-card" id="waLink">
+        <a href="https://wa.me/525657917967" target="_blank" class="contact-card">
           <span class="contact-icon">💬</span>
           <div>
             <div class="contact-info-label">WhatsApp</div>
-            <div class="contact-info-value">Send a message</div>
+            <div class="contact-info-value" data-i18n="contact.waValue">Send a message</div>
           </div>
         </a>
       </div>
@@ -980,27 +738,178 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-logo">
-      <a class="nav-logo" href="#hero">
-        <span class="nav-logo-bird">🦜</span>
-        <span class="nav-logo-text">Eureka<span>.</span></span>
-      </a>
-    </div>
-    <p class="footer-copy">© 2026 Eureka Websites. All rights reserved.</p>
+    <a class="nav-logo" href="#hero">
+      <span class="nav-logo-bird">🦜</span>
+      <span class="nav-logo-text">Eureka<span>.</span></span>
+    </a>
+    <p class="footer-copy" data-i18n="footer.copy">© 2026 Eureka. All rights reserved.</p>
     <ul class="footer-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#portfolio">Work</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="#portfolio" data-i18n="nav.work">Work</a></li>
+      <li><a href="#contact" data-i18n="nav.cta2">Contact</a></li>
     </ul>
   </footer>
 
   <script>
-    // Mobile nav toggle
+    const i18n = {
+      en: {
+        'nav.services':        'Services',
+        'nav.work':            'Work',
+        'nav.reviews':         'Reviews',
+        'nav.cta':             "Let's talk",
+        'nav.cta2':            'Contact',
+        'hero.eyebrow':        'Digital Products Studio',
+        'hero.h1a':            'We build things',
+        'hero.h1b':            'for the',
+        'hero.h1c':            'web',
+        'hero.h1d':            'that',
+        'hero.h1e':            'actually',
+        'hero.h1f':            'work.',
+        'hero.sub':            'From landing pages to full-stack web apps — we design, build, and launch digital products that help businesses grow.',
+        'hero.cta1':           'See our work →',
+        'hero.cta2':           'Get a quote',
+        'stats.projects':      'Projects live',
+        'stats.reviews':       'Client reviews',
+        'stats.clients':       'Clients served',
+        'services.eyebrow':    'What we do',
+        'services.title':      'Full-stack digital<br/>services',
+        'services.sub':        'Whatever your business needs online — we build it, ship it, and keep it running.',
+        's1.title':            'Websites',
+        's1.desc':             'Fast, beautiful websites built to convert visitors into customers. Custom-designed, mobile-first, and ready to rank.',
+        's2.title':            'Web Applications',
+        's2.desc':             'Complex tools, portals, and platforms. Booking systems, course portals, dashboards — if it runs in a browser, we build it.',
+        's3.title':            'Mobile Web Apps',
+        's3.desc':             'App-like experiences that run in the browser — no App Store required. Works on any device, installed like a native app.',
+        's4.title':            'Online Stores',
+        's4.desc':             'Custom e-commerce solutions. Sell products, manage inventory, and accept payments without paying platform fees forever.',
+        's5.title':            'TapPi Digital Cards',
+        's5.desc':             'NFC-powered digital business cards. One tap shares your contact, portfolio, and links — no app needed on the other end.',
+        'portfolio.eyebrow':   'Our work',
+        'portfolio.title':     "Projects we're<br/>proud of",
+        'portfolio.sub':       "A selection of sites and apps we've built for real clients, live and running.",
+        'p.websiteQuote':      'website + quote tool',
+        'p.website':           'website',
+        'p.webApp':            'web app',
+        'p.websiteBooking':    'website + booking',
+        'p.onlineStore':       'online store',
+        'p.mobileApp':         'mobile web app',
+        'p.digitalCards':      'digital cards',
+        'p.coordenada':        'Full travel agency site for a Mexico City agency — with a custom interactive quote generator for packages, itineraries, and pricing.',
+        'p.marioSite':         'Marketing and landing site for a Mexican educator and coach. Drives traffic and enrollments to his course platform.',
+        'p.marioCourses':      'Full course platform with enrollment flows, video lessons, student dashboards, and MXN payments. Built as a white-label LearnFlow product.',
+        'p.vampSite':          'Portfolio and booking site for a NYC-based tattoo artist and illustrator. Showcases work and handles commission inquiries.',
+        'p.vampStore':         'Custom online store integrated into the Vamp Stamps platform — sells prints, merch, and digital art commissions.',
+        'p.mercadoSite':       "Elegant website for a repostería, catering, and private chef business. Dark, sophisticated design that matches the brand's upscale aesthetic.",
+        'p.mercadoApp':        'Private mobile web app for internal use — manages recipes, ingredients, and cost calculations. Runs in the browser, installs like a native app, no App Store needed.',
+        'p.cardsTitle':        'Digital Business Cards',
+        'p.cardsDesc':         'Custom-designed digital business card pages paired with NFC tags. One tap shares contact info, social links, and portfolio — no app needed.',
+        'link.visitSite':      'Visit site →',
+        'link.openPlatform':   'Open platform →',
+        'link.visitStore':     'Visit store →',
+        'link.liveExample':    'See live example →',
+        'link.private':        '🔒 Private project',
+        'testimonials.eyebrow':'Reviews',
+        'testimonials.title':  'What clients<br/>say',
+        't1.quote':            '"They created an organizational website that streamlined many parts of our professional operations. The result exceeded our expectations — clean, functional, and exactly what we needed."',
+        't2.quote':            '"Great skill in organizing information and delivering a personalized visual proposal. They really listened to what we wanted and translated it into something that feels exactly right for our brand."',
+        't.source':            'Google Review',
+        'contact.eyebrow':     'Contact',
+        'contact.title':       'Ready to build<br/>something?',
+        'contact.sub':         "Tell us what you need. We'll get back to you fast with a clear plan and a real quote — no fluff.",
+        'contact.emailLabel':  'Email us',
+        'contact.waValue':     'Send a message',
+        'footer.copy':         '© 2026 Eureka. All rights reserved.',
+      },
+      es: {
+        'nav.services':        'Servicios',
+        'nav.work':            'Proyectos',
+        'nav.reviews':         'Reseñas',
+        'nav.cta':             'Hablemos',
+        'nav.cta2':            'Contacto',
+        'hero.eyebrow':        'Estudio de Productos Digitales',
+        'hero.h1a':            'Construimos cosas',
+        'hero.h1b':            'para la',
+        'hero.h1c':            'web',
+        'hero.h1d':            'que',
+        'hero.h1e':            'de verdad',
+        'hero.h1f':            'funcionan.',
+        'hero.sub':            'De páginas web a aplicaciones completas — diseñamos, desarrollamos y lanzamos productos digitales que hacen crecer tu negocio.',
+        'hero.cta1':           'Ver nuestro trabajo →',
+        'hero.cta2':           'Cotizar',
+        'stats.projects':      'Proyectos activos',
+        'stats.reviews':       'Reseñas de clientes',
+        'stats.clients':       'Clientes atendidos',
+        'services.eyebrow':    'Lo que hacemos',
+        'services.title':      'Servicios digitales<br/>completos',
+        'services.sub':        'Lo que tu negocio necesite en línea — lo construimos, lo lanzamos y lo mantenemos funcionando.',
+        's1.title':            'Sitios web',
+        's1.desc':             'Sitios rápidos y atractivos diseñados para convertir visitantes en clientes. A la medida, mobile-first y listos para posicionarse.',
+        's2.title':            'Aplicaciones web',
+        's2.desc':             'Portales, plataformas y herramientas complejas. Sistemas de reservas, cursos, dashboards — si corre en el navegador, lo hacemos.',
+        's3.title':            'Apps móviles web',
+        's3.desc':             'Experiencias tipo app que corren en el navegador — sin App Store. Funcionan en cualquier dispositivo y se instalan como app nativa.',
+        's4.title':            'Tiendas en línea',
+        's4.desc':             'E-commerce a la medida. Vende productos, gestiona inventario y acepta pagos sin depender de plataformas con comisiones de por vida.',
+        's5.title':            'Tarjetas TapPi',
+        's5.desc':             'Tarjetas de presentación digitales con NFC. Un toque comparte tu contacto, portafolio y redes — sin que la otra persona necesite ninguna app.',
+        'portfolio.eyebrow':   'Nuestro trabajo',
+        'portfolio.title':     'Proyectos de los<br/>que estamos orgullosos',
+        'portfolio.sub':       'Una selección de sitios y apps que hemos construido para clientes reales, activos y en línea.',
+        'p.websiteQuote':      'sitio + cotizador',
+        'p.website':           'sitio web',
+        'p.webApp':            'app web',
+        'p.websiteBooking':    'sitio + reservas',
+        'p.onlineStore':       'tienda en línea',
+        'p.mobileApp':         'app móvil web',
+        'p.digitalCards':      'tarjetas digitales',
+        'p.coordenada':        'Sitio completo para una agencia de viajes en CDMX — con un cotizador interactivo personalizado para paquetes, itinerarios y precios.',
+        'p.marioSite':         'Sitio de marketing para un educador y coach mexicano. Genera tráfico e inscripciones hacia su plataforma de cursos.',
+        'p.marioCourses':      'Plataforma de cursos completa con flujos de inscripción, clases en video, dashboard para alumnos y pagos en MXN. Producto white-label LearnFlow.',
+        'p.vampSite':          'Sitio de portafolio y reservas para una artista tatuadora e ilustradora en Nueva York. Muestra su trabajo y gestiona solicitudes de comisiones.',
+        'p.vampStore':         'Tienda en línea integrada en la plataforma de Vamp Stamps — vende prints, merch y comisiones de arte digital.',
+        'p.mercadoSite':       'Sitio elegante para un negocio de repostería, catering y chef privado. Diseño oscuro y sofisticado que refleja la estética premium de la marca.',
+        'p.mercadoApp':        'App móvil web privada para uso interno — gestiona recetas, ingredientes y cálculo de costos. Corre en el navegador y se instala como app nativa, sin App Store.',
+        'p.cardsTitle':        'Tarjetas de Presentación Digitales',
+        'p.cardsDesc':         'Páginas de tarjeta digital diseñadas a medida con tags NFC. Un toque comparte datos de contacto, redes y portafolio — sin app.',
+        'link.visitSite':      'Ver sitio →',
+        'link.openPlatform':   'Abrir plataforma →',
+        'link.visitStore':     'Ver tienda →',
+        'link.liveExample':    'Ver ejemplo real →',
+        'link.private':        '🔒 Proyecto privado',
+        'testimonials.eyebrow':'Reseñas',
+        'testimonials.title':  'Lo que dicen<br/>nuestros clientes',
+        't1.quote':            '"Crearon un sitio organizacional que optimizó muchas partes de nuestras operaciones profesionales. El resultado superó nuestras expectativas — limpio, funcional y exactamente lo que necesitábamos."',
+        't2.quote':            '"Excelente habilidad para organizar la información y entregar una propuesta visual personalizada. Realmente escucharon lo que queríamos y lo tradujeron en algo que se siente perfecto para nuestra marca."',
+        't.source':            'Reseña de Google',
+        'contact.eyebrow':     'Contacto',
+        'contact.title':       '¿Listo para construir<br/>algo?',
+        'contact.sub':         'Cuéntanos qué necesitas. Te respondemos rápido con un plan claro y una cotización real — sin rodeos.',
+        'contact.emailLabel':  'Escríbenos',
+        'contact.waValue':     'Manda un mensaje',
+        'footer.copy':         '© 2026 Eureka. Todos los derechos reservados.',
+      }
+    };
+
+    let currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+      document.getElementById('btnES').classList.toggle('active', lang === 'es');
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        const val = i18n[lang][key];
+        if (val !== undefined) el.innerHTML = val;
+      });
+    }
+
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('open');
     }
 
-    // Scroll-based fade-in
+    // Scroll fade-in
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {
@@ -1009,18 +918,14 @@
         }
       });
     }, { threshold: 0.12 });
-
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 
-    // Smooth nav highlight
+    // Nav active highlight
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
     window.addEventListener('scroll', () => {
       let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 120) current = s.id;
-      });
-      navLinks.forEach(a => {
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) current = s.id; });
+      document.querySelectorAll('.nav-links a').forEach(a => {
         a.style.color = a.getAttribute('href') === '#' + current ? 'var(--coral)' : '';
       });
     });
