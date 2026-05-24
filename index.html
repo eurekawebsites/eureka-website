@@ -787,11 +787,10 @@
       <!-- Form -->
       <div class="contact-form">
         <h3 data-i18n="contact.formTitle">Send us a message</h3>
-        <form action="https://formsubmit.co/aster@eurekawebsites.tech" method="POST">
-          <input type="hidden" name="_subject" value="New message from eurekawebsites.tech" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_next" value="https://eurekawebsites.github.io/eureka-website/?sent=1" />
+        <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleFormSubmit(event)">
+          <input type="hidden" name="access_key" value="3525af30-710c-4ad5-b601-162c04665abc" />
+          <input type="hidden" name="subject" value="New message from eurekawebsites.tech" />
+          <input type="hidden" name="redirect" value="false" />
           <div class="form-field">
             <label data-i18n="contact.fieldName">Name</label>
             <input type="text" name="name" required placeholder="Your name" />
@@ -817,6 +816,7 @@
             <textarea name="message" required placeholder="Tell us about your project…"></textarea>
           </div>
           <button type="submit" class="form-submit" data-i18n="contact.send">Send message →</button>
+          <div class="form-msg" id="formMsg"></div>
         </form>
       </div>
       <!-- Direct contact -->
@@ -1068,14 +1068,31 @@
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open'); });
 
-    // Show success toast if redirected back after form submission
-    if (new URLSearchParams(window.location.search).get('sent') === '1') {
-      const toast = document.createElement('div');
-      toast.textContent = "Message sent! We'll be in touch soon.";
-      toast.style.cssText = 'position:fixed;bottom:32px;left:50%;transform:translateX(-50%);background:#111;border:1px solid rgba(52,211,153,0.4);color:#34d399;padding:14px 28px;border-radius:10px;font-size:0.9rem;font-weight:600;z-index:999;box-shadow:0 8px 32px rgba(0,0,0,0.5);';
-      document.body.appendChild(toast);
-      setTimeout(() => toast.remove(), 5000);
-      history.replaceState({}, '', window.location.pathname);
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const msg = document.getElementById('formMsg');
+      const btn = form.querySelector('.form-submit');
+      btn.disabled = true;
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' }
+      })
+        .then(r => r.json())
+        .then(data => {
+          if (data.success) {
+            msg.textContent = i18n[currentLang]['contact.ok'];
+            msg.className = 'form-msg ok';
+            form.reset();
+          } else {
+            msg.textContent = i18n[currentLang]['contact.err'];
+            msg.className = 'form-msg err';
+          }
+        })
+        .catch(() => {
+          msg.textContent = i18n[currentLang]['contact.err'];
+          msg.className = 'form-msg err';
+        })
+        .finally(() => { btn.disabled = false; });
     }
   </script>
 </body>
