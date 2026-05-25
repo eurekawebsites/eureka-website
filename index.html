@@ -183,7 +183,14 @@
       left: 50%;
       top: 50%;
       width: 340px;
-      height: auto;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fde8e4 0%, #f8cfc9 60%, #f0b8b0 100%);
+      border: 3px solid rgba(240,96,100,0.4);
+      box-shadow: 0 0 80px rgba(240,96,100,0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       z-index: 2;
       pointer-events: none;
       user-select: none;
@@ -596,7 +603,9 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-noise"></div>
-    <img class="hero-bird-bg" src="eureka-bird-1.svg" alt="" aria-hidden="true" />
+    <div class="hero-bird-bg" aria-hidden="true">
+      <img src="eureka-bird-1.svg" alt="" style="width:70%;height:auto;display:block;" />
+    </div>
     <div class="hero-content">
       <div class="hero-eyebrow">
         <span>●</span> <span data-i18n="hero.eyebrow">Digital Products Studio</span>
