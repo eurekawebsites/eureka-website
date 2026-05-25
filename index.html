@@ -61,7 +61,8 @@
       align-items: center;
       gap: 10px;
     }
-    .nav-logo-bird { width: 28px; height: auto; display: block; filter: drop-shadow(0 0 8px rgba(255,255,255,0.6)) drop-shadow(0 0 2px rgba(240,96,100,0.4)); }
+    .nav-logo-bird-wrap { width: 36px; height: 36px; border-radius: 50%; background: radial-gradient(circle,#fde8e4 0%,#f8cfc9 60%,#f0b8b0 100%); border: 1px solid rgba(240,96,100,0.35); box-shadow: 0 0 14px rgba(240,96,100,0.4); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .nav-logo-bird { width: 22px; height: auto; display: block; }
     .nav-logo-text {
       font-family: var(--mono);
       font-weight: 700;
@@ -545,7 +546,7 @@
   <!-- NAV -->
   <nav>
     <a class="nav-logo" href="#hero">
-      <img class="nav-logo-bird" src="eureka-bird-1.svg" alt="Eureka bird" />
+      <div class="nav-logo-bird-wrap"><img class="nav-logo-bird" src="eureka-bird-1.svg" alt="Eureka bird" /></div>
       <span class="nav-logo-text">Eureka<span>.</span></span>
     </a>
     <div class="nav-right">
@@ -728,7 +729,7 @@
       </div>
 
       <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-cards"><div style="width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,#fde8e4 0%,#f8cfc9 60%,#f0b8b0 100%);border:1px solid rgba(240,96,100,0.35);box-shadow:0 0 32px rgba(240,96,100,0.35),0 0 60px rgba(240,96,100,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;"><img src="eureka-bird-1.svg" alt="Eureka bird" style="width:60px;height:auto;" /></div><span class="project-thumb-label" data-i18n="p.digitalCards">digital cards</span></div>
+        <div class="project-thumb project-thumb-cards"><div style="width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,#fde8e4 0%,#f8cfc9 60%,#f0b8b0 100%);border:1px solid rgba(240,96,100,0.35);box-shadow:0 0 32px rgba(240,96,100,0.35),0 0 60px rgba(240,96,100,0.15);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;"><img src="eureka-bird-1.svg" alt="Eureka bird" style="width:44px;height:auto;" /></div><span class="project-thumb-label" data-i18n="p.digitalCards">digital cards</span></div>
         <div class="project-body">
           <div class="project-tags"><span class="tag tag-pink">NFC</span><span class="tag tag-coral">TapPi</span></div>
           <h3 data-i18n="p.cardsTitle">Digital Business Cards</h3>
@@ -848,7 +849,7 @@
   <!-- FOOTER -->
   <footer>
     <a class="nav-logo" href="#hero">
-      <img class="nav-logo-bird" src="eureka-bird-1.svg" alt="Eureka bird" />
+      <div class="nav-logo-bird-wrap"><img class="nav-logo-bird" src="eureka-bird-1.svg" alt="Eureka bird" /></div>
       <span class="nav-logo-text">Eureka<span>.</span></span>
     </a>
     <p class="footer-copy" data-i18n="footer.copy">© 2026 Eureka. All rights reserved.</p>
