@@ -174,25 +174,17 @@
       75%  { transform: translate(-50%, -50%) scale(1); opacity: 1; }
       100% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
     }
-    @keyframes tumble-1 { 0% { opacity:0; transform: rotate(-20deg) scale(0.6); } 100% { opacity:1; transform: rotate(0) scale(1); } }
-    @keyframes tumble-2 { 0% { opacity:0; transform: rotate(18deg)  scale(0.6); } 100% { opacity:1; transform: rotate(0) scale(1); } }
-    @keyframes tumble-3 { 0% { opacity:0; transform: rotate(-12deg) scale(0.5); } 100% { opacity:1; transform: rotate(0) scale(1); } }
-    @keyframes tumble-4 { 0% { opacity:0; transform: rotate(22deg)  scale(0.7); } 100% { opacity:1; transform: rotate(0) scale(1); } }
-    @keyframes tumble-5 { 0% { opacity:0; transform: rotate(-16deg) scale(0.5); } 100% { opacity:1; transform: rotate(0) scale(1); } }
-    @keyframes tumble-6 { 0% { opacity:0; transform: rotate(14deg)  scale(0.6); } 100% { opacity:1; transform: rotate(0) scale(1); } }
-    @keyframes tumble-7 { 0% { opacity:0; transform: rotate(-8deg)  scale(0.7); } 100% { opacity:1; transform: rotate(0) scale(1); } }
-    @keyframes tumble-8 { 0% { opacity:0; transform: rotate(20deg)  scale(0.5); } 100% { opacity:1; transform: rotate(0) scale(1); } }
-    @keyframes tumble-9 { 0% { opacity:0; transform: rotate(-14deg) scale(0.6); } 100% { opacity:1; transform: rotate(0) scale(1); } }
+    @keyframes fly-from-tl  { 0% { opacity:0; transform: translate(-200px,-150px) rotate(-25deg); } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes fly-from-tr  { 0% { opacity:0; transform: translate(200px,-150px)  rotate(25deg);  } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes fly-from-bl  { 0% { opacity:0; transform: translate(-200px,150px)  rotate(20deg);  } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes fly-from-br  { 0% { opacity:0; transform: translate(200px,150px)   rotate(-20deg); } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes fly-from-l   { 0% { opacity:0; transform: translateX(-250px) rotate(-15deg); } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes fly-from-r   { 0% { opacity:0; transform: translateX(250px)  rotate(15deg);  } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes fly-from-t   { 0% { opacity:0; transform: translateY(-200px) rotate(10deg);  } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes fly-from-b   { 0% { opacity:0; transform: translateY(200px)  rotate(-10deg); } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
 
-    .fly-1 { opacity:0; animation: tumble-1 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-2 { opacity:0; animation: tumble-2 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-3 { opacity:0; animation: tumble-3 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-4 { opacity:0; animation: tumble-4 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-5 { opacity:0; animation: tumble-5 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-6 { opacity:0; animation: tumble-6 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-7 { opacity:0; animation: tumble-7 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-8 { opacity:0; animation: tumble-8 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-9 { opacity:0; animation: tumble-9 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
+    .letter-fly { display: inline-block; opacity: 0; animation-duration: 0.5s; animation-timing-function: cubic-bezier(0.22,1,0.36,1); animation-fill-mode: both; animation-play-state: paused; }
+    .fly-group  { opacity: 0; animation: fly-from-b 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
     .hero-bird-bg {
       position: absolute;
       left: 50%;
@@ -620,22 +612,22 @@
       <img src="eureka-bird-1.svg" alt="" style="width:70%;height:auto;display:block;" />
     </div>
     <div class="hero-content" id="heroContent">
-      <div class="hero-eyebrow fly-7">
+      <div class="hero-eyebrow fly-group">
         <span>●</span> <span data-i18n="hero.eyebrow">Digital Products Studio</span>
       </div>
-      <h1>
-        <span class="fly-1" data-i18n="hero.h1a">We build things</span><br/>
-        <span class="fly-4" data-i18n="hero.h1b">for the</span> <span class="accent fly-3" data-i18n="hero.h1c">web</span> <span class="fly-2" data-i18n="hero.h1d">that</span><br/>
-        <span class="fly-5" data-i18n="hero.h1e">actually</span> <span class="accent-cyan fly-6" data-i18n="hero.h1f">work.</span>
+      <h1 id="heroH1">
+        <span data-i18n="hero.h1a">We build things</span><br/>
+        <span data-i18n="hero.h1b">for the</span> <span class="accent" data-i18n="hero.h1c">web</span> <span data-i18n="hero.h1d">that</span><br/>
+        <span data-i18n="hero.h1e">actually</span> <span class="accent-cyan" data-i18n="hero.h1f">work.</span>
       </h1>
-      <p class="hero-sub fly-8" data-i18n="hero.sub">
+      <p class="hero-sub fly-group" data-i18n="hero.sub">
         From landing pages to full-stack web apps — we design, build, and launch digital products that help businesses grow.
       </p>
-      <div class="hero-actions fly-9">
+      <div class="hero-actions fly-group">
         <a href="#portfolio" class="btn btn-primary" data-i18n="hero.cta1">See our work →</a>
         <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Get a quote</a>
       </div>
-      <div class="hero-stats fly-7">
+      <div class="hero-stats fly-group">
         <div class="stat">
           <div class="stat-num">10+</div>
           <div class="stat-label" data-i18n="stats.projects">Projects live</div>
@@ -1071,16 +1063,48 @@
       }
     };
 
-    // Trigger fly-in animations after bird finishes (~2.6s)
+    // Split h1 text into per-letter spans
+    (function() {
+      var anims = ['fly-from-tl','fly-from-tr','fly-from-bl','fly-from-br','fly-from-l','fly-from-r','fly-from-t','fly-from-b'];
+      var h1 = document.getElementById('heroH1');
+      h1.querySelectorAll('span').forEach(function(span) {
+        var text = span.textContent;
+        var html = '';
+        for (var i = 0; i < text.length; i++) {
+          var ch = text[i];
+          if (ch === ' ') {
+            html += ' ';
+          } else {
+            var anim = anims[Math.floor(Math.random() * anims.length)];
+            html += '<span class="letter-fly" data-anim="' + anim + '">' + ch + '</span>';
+          }
+        }
+        span.innerHTML = html;
+      });
+    })();
+
+    // Trigger all animations after bird finishes (~2.6s)
     setTimeout(function() {
       var content = document.getElementById('heroContent');
       content.classList.add('revealed');
-      var els = content.querySelectorAll('[class*="fly-"]');
+
+      // Letters — staggered randomly
+      var letters = content.querySelectorAll('.letter-fly');
       var delay = 0;
-      els.forEach(function(el) {
+      letters.forEach(function(el) {
+        el.style.animationName = el.getAttribute('data-anim');
         el.style.animationDelay = delay + 's';
         el.style.animationPlayState = 'running';
-        delay += 0.09;
+        delay += 0.03;
+      });
+
+      // Groups — after letters finish
+      var groups = content.querySelectorAll('.fly-group');
+      var groupDelay = delay + 0.1;
+      groups.forEach(function(el) {
+        el.style.animationDelay = groupDelay + 's';
+        el.style.animationPlayState = 'running';
+        groupDelay += 0.1;
       });
     }, 2600);
 
