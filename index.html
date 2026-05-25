@@ -174,24 +174,25 @@
       75%  { transform: translate(-50%, -50%) scale(1); opacity: 1; }
       100% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
     }
-    @keyframes from-left   { 0% { opacity:0; transform: translateX(-120px); } 100% { opacity:1; transform: translateX(0); } }
-    @keyframes from-right  { 0% { opacity:0; transform: translateX(120px);  } 100% { opacity:1; transform: translateX(0); } }
-    @keyframes from-top    { 0% { opacity:0; transform: translateY(-80px);  } 100% { opacity:1; transform: translateY(0); } }
-    @keyframes from-bottom { 0% { opacity:0; transform: translateY(80px);   } 100% { opacity:1; transform: translateY(0); } }
-    @keyframes from-topleft     { 0% { opacity:0; transform: translate(-80px,-60px) rotate(-8deg); } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
-    @keyframes from-topright    { 0% { opacity:0; transform: translate(80px,-60px)  rotate(8deg);  } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
-    @keyframes from-bottomleft  { 0% { opacity:0; transform: translate(-80px,60px)  rotate(6deg);  } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
-    @keyframes from-bottomright { 0% { opacity:0; transform: translate(80px,60px)   rotate(-6deg); } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes tumble-1 { 0% { opacity:0; transform: rotate(-20deg) scale(0.6); } 100% { opacity:1; transform: rotate(0) scale(1); } }
+    @keyframes tumble-2 { 0% { opacity:0; transform: rotate(18deg)  scale(0.6); } 100% { opacity:1; transform: rotate(0) scale(1); } }
+    @keyframes tumble-3 { 0% { opacity:0; transform: rotate(-12deg) scale(0.5); } 100% { opacity:1; transform: rotate(0) scale(1); } }
+    @keyframes tumble-4 { 0% { opacity:0; transform: rotate(22deg)  scale(0.7); } 100% { opacity:1; transform: rotate(0) scale(1); } }
+    @keyframes tumble-5 { 0% { opacity:0; transform: rotate(-16deg) scale(0.5); } 100% { opacity:1; transform: rotate(0) scale(1); } }
+    @keyframes tumble-6 { 0% { opacity:0; transform: rotate(14deg)  scale(0.6); } 100% { opacity:1; transform: rotate(0) scale(1); } }
+    @keyframes tumble-7 { 0% { opacity:0; transform: rotate(-8deg)  scale(0.7); } 100% { opacity:1; transform: rotate(0) scale(1); } }
+    @keyframes tumble-8 { 0% { opacity:0; transform: rotate(20deg)  scale(0.5); } 100% { opacity:1; transform: rotate(0) scale(1); } }
+    @keyframes tumble-9 { 0% { opacity:0; transform: rotate(-14deg) scale(0.6); } 100% { opacity:1; transform: rotate(0) scale(1); } }
 
-    .fly-1 { opacity:0; animation: from-topleft     0.55s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-2 { opacity:0; animation: from-right        0.55s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-3 { opacity:0; animation: from-bottom       0.55s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-4 { opacity:0; animation: from-left         0.55s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-5 { opacity:0; animation: from-topright     0.55s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-6 { opacity:0; animation: from-bottomright  0.55s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-7 { opacity:0; animation: from-top          0.55s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-8 { opacity:0; animation: from-bottomleft   0.55s cubic-bezier(0.22,1,0.36,1) both paused; }
-    .fly-9 { opacity:0; animation: from-left         0.55s cubic-bezier(0.22,1,0.36,1) both paused; }
+    .fly-1 { opacity:0; animation: tumble-1 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
+    .fly-2 { opacity:0; animation: tumble-2 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
+    .fly-3 { opacity:0; animation: tumble-3 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
+    .fly-4 { opacity:0; animation: tumble-4 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
+    .fly-5 { opacity:0; animation: tumble-5 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
+    .fly-6 { opacity:0; animation: tumble-6 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
+    .fly-7 { opacity:0; animation: tumble-7 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
+    .fly-8 { opacity:0; animation: tumble-8 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
+    .fly-9 { opacity:0; animation: tumble-9 0.6s cubic-bezier(0.22,1,0.36,1) both paused; }
     .hero-bird-bg {
       position: absolute;
       left: 50%;
