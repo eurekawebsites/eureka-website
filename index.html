@@ -169,17 +169,17 @@
         radial-gradient(ellipse 50% 50% at 60% 80%, rgba(244,181,172,0.08) 0%, transparent 50%);
     }
     @keyframes bird-flash {
-      0%   { opacity: 0;   transform: translate(-50%, -50%) scale(0.6); }
-      20%  { opacity: 1;   transform: translate(-50%, -50%) scale(1); }
-      65%  { opacity: 1;   transform: translate(-50%, -50%) scale(1); }
-      100% { opacity: 0;   transform: translate(-50%, -50%) scale(2.2); }
+      0%   { opacity: 0; }
+      15%  { opacity: 1; }
+      75%  { opacity: 1; }
+      100% { opacity: 0; }
     }
     .hero-bird-bg {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 220px;
-      height: 220px;
+      width: 280px;
+      height: 280px;
       border-radius: 50%;
       background: radial-gradient(circle, #fde8e4 0%, #f8cfc9 60%, #f0b8b0 100%);
       border: 3px solid rgba(240,96,100,0.4);
@@ -192,7 +192,7 @@
       user-select: none;
       transform: translate(-50%, -50%);
       opacity: 0;
-      animation: bird-flash 3.8s ease-in-out 0.6s 1 forwards;
+      animation: bird-flash 3.5s ease-in-out 0.6s 1 forwards;
     }
     .hero-bird-bg img {
       width: 75%;
