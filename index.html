@@ -174,10 +174,27 @@
       75%  { transform: translate(-50%, -50%) scale(1); opacity: 1; }
       100% { transform: translate(-50%, -50%) scale(0); opacity: 1; }
     }
-    @keyframes content-reveal {
-      0%   { opacity: 0; transform: translateY(12px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes from-left   { 0% { opacity:0; transform: translateX(-120px); } 100% { opacity:1; transform: translateX(0); } }
+    @keyframes from-right  { 0% { opacity:0; transform: translateX(120px);  } 100% { opacity:1; transform: translateX(0); } }
+    @keyframes from-top    { 0% { opacity:0; transform: translateY(-80px);  } 100% { opacity:1; transform: translateY(0); } }
+    @keyframes from-bottom { 0% { opacity:0; transform: translateY(80px);   } 100% { opacity:1; transform: translateY(0); } }
+    @keyframes from-topleft     { 0% { opacity:0; transform: translate(-80px,-60px) rotate(-8deg); } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes from-topright    { 0% { opacity:0; transform: translate(80px,-60px)  rotate(8deg);  } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes from-bottomleft  { 0% { opacity:0; transform: translate(-80px,60px)  rotate(6deg);  } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+    @keyframes from-bottomright { 0% { opacity:0; transform: translate(80px,60px)   rotate(-6deg); } 100% { opacity:1; transform: translate(0,0) rotate(0); } }
+
+    .hero-content { opacity: 0; animation: none; }
+    .hero-content.revealed { opacity: 1; }
+
+    .fly-1 { opacity:0; animation: from-topleft     0.55s cubic-bezier(0.22,1,0.36,1) both; }
+    .fly-2 { opacity:0; animation: from-right        0.55s cubic-bezier(0.22,1,0.36,1) both; }
+    .fly-3 { opacity:0; animation: from-bottom       0.55s cubic-bezier(0.22,1,0.36,1) both; }
+    .fly-4 { opacity:0; animation: from-left         0.55s cubic-bezier(0.22,1,0.36,1) both; }
+    .fly-5 { opacity:0; animation: from-topright     0.55s cubic-bezier(0.22,1,0.36,1) both; }
+    .fly-6 { opacity:0; animation: from-bottomright  0.55s cubic-bezier(0.22,1,0.36,1) both; }
+    .fly-7 { opacity:0; animation: from-top          0.55s cubic-bezier(0.22,1,0.36,1) both; }
+    .fly-8 { opacity:0; animation: from-bottomleft   0.55s cubic-bezier(0.22,1,0.36,1) both; }
+    .fly-9 { opacity:0; animation: from-left         0.55s cubic-bezier(0.22,1,0.36,1) both; }
     .hero-bird-bg {
       position: absolute;
       left: 50%;
@@ -606,23 +623,23 @@
     <div class="hero-bird-bg" aria-hidden="true">
       <img src="eureka-bird-1.svg" alt="" style="width:70%;height:auto;display:block;" />
     </div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">
+    <div class="hero-content" id="heroContent">
+      <div class="hero-eyebrow fly-7">
         <span>●</span> <span data-i18n="hero.eyebrow">Digital Products Studio</span>
       </div>
       <h1>
-        <span data-i18n="hero.h1a">We build things</span><br/>
-        <span data-i18n="hero.h1b">for the</span> <span class="accent" data-i18n="hero.h1c">web</span> <span data-i18n="hero.h1d">that</span><br/>
-        <span data-i18n="hero.h1e">actually</span> <span class="accent-cyan" data-i18n="hero.h1f">work.</span>
+        <span class="fly-1" data-i18n="hero.h1a">We build things</span><br/>
+        <span class="fly-4" data-i18n="hero.h1b">for the</span> <span class="accent fly-3" data-i18n="hero.h1c">web</span> <span class="fly-2" data-i18n="hero.h1d">that</span><br/>
+        <span class="fly-5" data-i18n="hero.h1e">actually</span> <span class="accent-cyan fly-6" data-i18n="hero.h1f">work.</span>
       </h1>
-      <p class="hero-sub" data-i18n="hero.sub">
+      <p class="hero-sub fly-8" data-i18n="hero.sub">
         From landing pages to full-stack web apps — we design, build, and launch digital products that help businesses grow.
       </p>
-      <div class="hero-actions">
+      <div class="hero-actions fly-9">
         <a href="#portfolio" class="btn btn-primary" data-i18n="hero.cta1">See our work →</a>
         <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Get a quote</a>
       </div>
-      <div class="hero-stats">
+      <div class="hero-stats fly-7">
         <div class="stat">
           <div class="stat-num">10+</div>
           <div class="stat-label" data-i18n="stats.projects">Projects live</div>
@@ -1057,6 +1074,17 @@
         'footer.copy':         '© 2026 Eureka. Todos los derechos reservados.',
       }
     };
+
+    // Trigger fly-in animations after bird finishes (~2.6s)
+    setTimeout(function() {
+      var content = document.getElementById('heroContent');
+      content.classList.add('revealed');
+      var delay = 0;
+      content.querySelectorAll('[class*="fly-"]').forEach(function(el) {
+        el.style.animationDelay = delay + 's';
+        delay += 0.08;
+      });
+    }, 2600);
 
     let currentLang = 'en';
 
