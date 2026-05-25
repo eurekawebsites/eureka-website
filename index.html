@@ -168,36 +168,31 @@
         radial-gradient(ellipse 60% 60% at 80% 30%, rgba(159,236,244,0.10) 0%, transparent 55%),
         radial-gradient(ellipse 50% 50% at 60% 80%, rgba(244,181,172,0.08) 0%, transparent 50%);
     }
-    @keyframes bird-flash {
-      0%   { opacity: 0; }
-      15%  { opacity: 1; }
-      75%  { opacity: 1; }
-      100% { opacity: 0; }
+    @keyframes bird-intro {
+      0%   { transform: translate(-50%, -50%) scale(8); opacity: 0; }
+      20%  { opacity: 1; }
+      75%  { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+    }
+    @keyframes content-reveal {
+      0%   { opacity: 0; transform: translateY(12px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
     .hero-bird-bg {
       position: absolute;
       left: 50%;
       top: 50%;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #fde8e4 0%, #f8cfc9 60%, #f0b8b0 100%);
-      border: 3px solid rgba(240,96,100,0.4);
-      box-shadow: 0 0 60px rgba(240,96,100,0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 340px;
+      height: auto;
       z-index: 2;
       pointer-events: none;
       user-select: none;
-      transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%) scale(8);
       opacity: 0;
-      animation: bird-flash 3.5s ease-in-out 0.6s 1 forwards;
+      animation: bird-intro 2.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s 1 forwards;
     }
-    .hero-bird-bg img {
-      width: 75%;
-      height: auto;
-      display: block;
+    .hero-content {
+      animation: content-reveal 0.7s ease-out 2.9s 1 both;
     }
     .hero-noise {
       position: absolute; inset: 0; z-index: 0; opacity: 0.03;
@@ -601,9 +596,7 @@
   <section id="hero">
     <div class="hero-bg"></div>
     <div class="hero-noise"></div>
-    <div class="hero-bird-bg" aria-hidden="true">
-      <img src="eureka-bird-1.svg" alt="" />
-    </div>
+    <img class="hero-bird-bg" src="eureka-bird-1.svg" alt="" aria-hidden="true" />
     <div class="hero-content">
       <div class="hero-eyebrow">
         <span>●</span> <span data-i18n="hero.eyebrow">Digital Products Studio</span>
