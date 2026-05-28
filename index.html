@@ -590,6 +590,122 @@
       footer { flex-direction: column; text-align: center; }
     }
 
+    /* ── CATEGORY CARDS ── */
+    .category-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .category-card {
+      background: var(--surface);
+      border: 1px solid rgba(240,96,100,0.25);
+      border-radius: 16px;
+      padding: 36px 32px;
+      cursor: pointer;
+      transition: border-color 0.25s, transform 0.2s, box-shadow 0.25s;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 32px rgba(240,96,100,0.15);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .category-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--coral), var(--pink));
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .category-card:hover { border-color: rgba(240,96,100,0.5); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 32px rgba(240,96,100,0.2); }
+    .category-card:hover::before { opacity: 1; }
+    .category-card.cyan { border-color: rgba(159,236,244,0.2); box-shadow: 0 0 32px rgba(159,236,244,0.1); }
+    .category-card.cyan::before { background: linear-gradient(90deg, var(--cyan), #5bcfdb); }
+    .category-card.cyan:hover { border-color: rgba(159,236,244,0.45); box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 32px rgba(159,236,244,0.15); }
+    .category-card-icon { font-size: 2.4rem; }
+    .category-card-count {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+    .category-card.cyan .category-card-count { color: var(--cyan); }
+    .category-card-title { font-size: 1.2rem; font-weight: 700; margin: 0; }
+    .category-card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.6; flex: 1; }
+    .category-card-cta {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--coral);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .category-card.cyan .category-card-cta { color: var(--cyan); }
+
+    /* ── PROJECT MODALS ── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; z-index: 1000;
+      background: rgba(0,0,0,0.88); backdrop-filter: blur(8px);
+      align-items: center; justify-content: center; padding: 20px;
+    }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #181b22;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 36px;
+      max-width: 680px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.8);
+    }
+    .modal-box.coral { border-color: rgba(240,96,100,0.25); }
+    .modal-box.cyan-border { border-color: rgba(159,236,244,0.2); }
+    .modal-header { margin-bottom: 24px; }
+    .modal-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 6px;
+    }
+    .modal-eyebrow.cyan { color: var(--cyan); }
+    .modal-header h3 { font-size: 1.3rem; font-weight: 700; }
+    .modal-close {
+      position: absolute; top: 16px; right: 20px;
+      background: none; border: none; color: var(--muted); font-size: 1.8rem;
+      cursor: pointer; line-height: 1; transition: color 0.15s;
+    }
+    .modal-close:hover { color: var(--text); }
+    .modal-projects { display: flex; flex-direction: column; gap: 14px; }
+    .modal-project {
+      background: #111318;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px;
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .modal-project:hover { border-color: rgba(240,96,100,0.35); transform: translateX(4px); }
+    .modal-project.cyan-hover:hover { border-color: rgba(159,236,244,0.35); }
+    .modal-project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .modal-project-name { font-weight: 600; font-size: 0.95rem; }
+    .modal-project-arrow { color: var(--coral); font-size: 0.9rem; flex-shrink: 0; }
+    .modal-project.cyan-hover .modal-project-arrow { color: var(--cyan); }
+    .modal-project-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .modal-project-url { font-size: 0.7rem; font-family: var(--mono); color: var(--muted); }
+    .modal-project-private { font-size: 0.75rem; color: var(--muted); }
+
     /* ── FADE-IN ── */
     .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.6s ease; }
     .fade-up.visible { opacity: 1; transform: translateY(0); }
@@ -697,92 +813,42 @@
       <h2 class="section-title" data-i18n="portfolio.title">Projects we're<br/>proud of</h2>
       <p class="section-sub" data-i18n="portfolio.sub">A selection of sites and apps we've built for real clients, live and running.</p>
     </div>
-    <div class="portfolio-grid">
+    <div class="category-grid">
 
-      <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-coordenada"><img class="thumb-logo" src="logo-coordenada.svg" alt="Coordenada Viajes" /><span class="project-thumb-label" data-i18n="p.websiteQuote">website + quote tool</span></div>
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-coral">Travel</span><span class="tag tag-cyan">Web App</span></div>
-          <h3>Coordenada Viajes</h3>
-          <p data-i18n="p.coordenada">Full travel agency site for a Mexico City agency — with a custom interactive quote generator for packages, itineraries, and pricing.</p>
-          <a href="https://coordenadaviajes.com" target="_blank" class="project-link" data-i18n="link.visitSite">Visit site →</a>
-        </div>
+      <!-- WEBSITES -->
+      <div class="category-card fade-up" onclick="openModal('modal-websites')">
+        <div class="category-card-icon">🌐</div>
+        <div class="category-card-count">3 projects</div>
+        <h3 class="category-card-title">Websites</h3>
+        <p class="category-card-desc">Landing pages and full marketing sites built to convert.</p>
+        <span class="category-card-cta">See projects →</span>
       </div>
 
-      <div class="project-card cyan fade-up">
-        <div class="project-thumb project-thumb-learnflow"><img class="thumb-logo" src="logo-mario-franco.png" alt="Mario Franco" style="border-radius:50%;max-width:52%;max-height:72%;" /><span class="project-thumb-label" data-i18n="p.website">website</span></div>
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-cyan">EdTech</span><span class="tag tag-pink">Website</span></div>
-          <h3>Mario Franco — Site</h3>
-          <p data-i18n="p.marioSite">Marketing and landing site for a Mexican educator and coach. Drives traffic and enrollments to his course platform.</p>
-          <a href="https://mario-franco-courses.web.app" target="_blank" class="project-link" data-i18n="link.visitSite">Visit site →</a>
-        </div>
+      <!-- WEB APPS -->
+      <div class="category-card cyan fade-up" onclick="openModal('modal-webapps')">
+        <div class="category-card-icon">⚙️</div>
+        <div class="category-card-count">3 projects</div>
+        <h3 class="category-card-title">Web Apps</h3>
+        <p class="category-card-desc">Dashboards, course platforms, booking systems, and tools.</p>
+        <span class="category-card-cta">See projects →</span>
       </div>
 
-      <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-learnflow"><img class="thumb-logo" src="logo-mario-franco.png" alt="Mario Franco Courses" style="border-radius:50%;max-width:52%;max-height:72%;" /><span class="project-thumb-label" data-i18n="p.webApp">web app</span></div>
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-cyan">EdTech</span><span class="tag tag-coral">Web App</span></div>
-          <h3>Mario Franco — Courses</h3>
-          <p data-i18n="p.marioCourses">Full course platform with enrollment flows, video lessons, student dashboards, and MXN payments. Built as a white-label LearnFlow product.</p>
-          <a href="https://mario-franco-courses.web.app" target="_blank" class="project-link" data-i18n="link.openPlatform">Open platform →</a>
-        </div>
+      <!-- MOBILE APPS -->
+      <div class="category-card fade-up" onclick="openModal('modal-mobile')">
+        <div class="category-card-icon">📱</div>
+        <div class="category-card-count">2 projects</div>
+        <h3 class="category-card-title">Mobile Apps</h3>
+        <p class="category-card-desc">PWAs that install and feel native — no App Store needed.</p>
+        <span class="category-card-cta">See projects →</span>
       </div>
 
-      <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-vamp"><img class="thumb-logo" src="logo-vamp-stamps.png" alt="Vamp Stamps" /><span class="project-thumb-label" data-i18n="p.websiteBooking">website + booking</span></div>
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-pink">Art Studio</span><span class="tag tag-coral">Booking</span></div>
-          <h3>Vamp Stamps — Site</h3>
-          <p data-i18n="p.vampSite">Portfolio and booking site for a NYC-based tattoo artist and illustrator. Showcases work and handles commission inquiries.</p>
-          <a href="https://vamp-stamps.web.app" target="_blank" class="project-link" data-i18n="link.visitSite">Visit site →</a>
-        </div>
-      </div>
-
-      <div class="project-card cyan fade-up">
-        <div class="project-thumb project-thumb-vamp"><img class="thumb-logo" src="logo-vamp-stamps.png" alt="Vamp Stamps Store" /><span class="project-thumb-label" data-i18n="p.onlineStore">online store</span></div>
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-pink">E-commerce</span><span class="tag tag-coral">Art Studio</span></div>
-          <h3>Vamp Stamps — Store</h3>
-          <p data-i18n="p.vampStore">Custom online store integrated into the Vamp Stamps platform — sells prints, merch, and digital art commissions.</p>
-          <a href="https://vamp-stamps.web.app" target="_blank" class="project-link" data-i18n="link.visitStore">Visit store →</a>
-        </div>
-      </div>
-
-      <div class="project-card fade-up">
-        <div class="project-thumb project-thumb-mercado"><img class="thumb-logo" src="logo-mercado-negro.png" alt="Mercado Negro" /><span class="project-thumb-label" data-i18n="p.website">website</span></div>
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-coral">Catering</span><span class="tag tag-cyan">Website</span></div>
-          <h3>Mercado Negro — Site</h3>
-          <p data-i18n="p.mercadoSite">Elegant website for a repostería, catering, and private chef business. Dark, sophisticated design that matches the brand's upscale aesthetic.</p>
-          <a href="https://eurekawebsites.github.io/mercado-negro/" target="_blank" class="project-link" data-i18n="link.visitSite">Visit site →</a>
-        </div>
-      </div>
-
-      <div class="project-card fade-up">
-        <div class="project-thumb">
-          <button class="lightbox-btn" onclick="openLightbox()">
-            <img class="thumb-logo" src="logo-mercado-negro.png" alt="Mercado Negro App" style="max-width:44%;max-height:55%;" />
-            <span class="lightbox-btn-label" data-i18n="p.viewApp">📱 Ver app →</span>
-          </button>
-          <span class="project-thumb-label" data-i18n="p.mobileApp">mobile web app</span>
-        </div>
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-coral">Catering</span><span class="tag tag-cyan">Mobile App</span></div>
-          <h3>Mercado Negro — App</h3>
-          <p data-i18n="p.mercadoApp">Private mobile web app for internal use — manages recipes, ingredients, and cost calculations. Runs in the browser, installs like a native app, no App Store needed.</p>
-          <span class="project-private" data-i18n="link.private">🔒 Private project</span>
-        </div>
-      </div>
-
-      <div class="project-card cyan fade-up">
-        <div class="project-thumb project-thumb-cards"><div style="width:80px;height:80px;border-radius:50%;background:radial-gradient(circle,#fde8e4 0%,#f8cfc9 60%,#f0b8b0 100%);border:1px solid rgba(240,96,100,0.4);box-shadow:0 0 16px rgba(240,96,100,0.45);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;"><img src="eureka-bird-1.svg" alt="Eureka bird" style="width:46px;height:auto;" /></div><span class="project-thumb-label" data-i18n="p.digitalCards">digital cards</span></div>
-        <div class="project-body">
-          <div class="project-tags"><span class="tag tag-pink">NFC</span><span class="tag tag-coral">TapPi</span></div>
-          <h3 data-i18n="p.cardsTitle">Digital Business Cards</h3>
-          <p data-i18n="p.cardsDesc">Custom-designed digital business card pages paired with NFC tags. One tap shares contact info, social links, and portfolio — no app needed.</p>
-          <a href="https://www.coordenadaviajes.com/tarjeta" target="_blank" class="project-link" data-i18n="link.liveExample">See live example →</a>
-        </div>
+      <!-- DIGITAL CARDS -->
+      <div class="category-card cyan fade-up" onclick="openModal('modal-cards')">
+        <div class="category-card-icon">🪪</div>
+        <div class="category-card-count">6 cards live</div>
+        <h3 class="category-card-title">Digital Cards</h3>
+        <p class="category-card-desc">NFC + QR business cards. One tap shares everything.</p>
+        <span class="category-card-cta">Browse all cards →</span>
       </div>
 
     </div>
@@ -884,6 +950,127 @@
       </div>
     </div>
   </section>
+
+  <!-- MODAL: WEBSITES -->
+  <div class="modal-overlay" id="modal-websites" onclick="closeModal(event, 'modal-websites')">
+    <div class="modal-box coral">
+      <button class="modal-close" onclick="closeModalById('modal-websites')">×</button>
+      <div class="modal-header">
+        <div class="modal-eyebrow">🌐 Websites</div>
+        <h3>Marketing & Landing Sites</h3>
+      </div>
+      <div class="modal-projects">
+        <a class="modal-project" href="https://coordenadaviajes.com" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Coordenada Viajes</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Full travel agency site with custom interactive quote generator for packages and itineraries.</span>
+          <span class="modal-project-url">coordenadaviajes.com</span>
+        </a>
+        <a class="modal-project" href="https://mario-franco-courses.web.app" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Mario Franco</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Marketing and landing site for a Mexican educator and coach.</span>
+          <span class="modal-project-url">mario-franco-courses.web.app</span>
+        </a>
+        <a class="modal-project" href="https://eurekawebsites.github.io/mercado-negro/" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Mercado Negro</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Elegant dark site for a repostería, catering, and private chef business.</span>
+          <span class="modal-project-url">eurekawebsites.github.io/mercado-negro</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: WEB APPS -->
+  <div class="modal-overlay" id="modal-webapps" onclick="closeModal(event, 'modal-webapps')">
+    <div class="modal-box cyan-border">
+      <button class="modal-close" onclick="closeModalById('modal-webapps')">×</button>
+      <div class="modal-header">
+        <div class="modal-eyebrow cyan">⚙️ Web Apps</div>
+        <h3>Dashboards & Platforms</h3>
+      </div>
+      <div class="modal-projects">
+        <a class="modal-project cyan-hover" href="https://mario-franco-courses.web.app" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Mario Franco — Courses</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Full course platform with enrollment, video lessons, student dashboards, and MXN payments.</span>
+          <span class="modal-project-url">mario-franco-courses.web.app</span>
+        </a>
+        <a class="modal-project cyan-hover" href="https://vamp-stamps.web.app" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Vamp Stamps</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Portfolio, booking, and online store for a NYC-based tattoo artist and illustrator.</span>
+          <span class="modal-project-url">vamp-stamps.web.app</span>
+        </a>
+        <a class="modal-project cyan-hover" href="https://incerti-baz.web.app" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Incerti — David Baz</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Client web app with login, dashboard, and registration flow.</span>
+          <span class="modal-project-url">incerti-baz.web.app</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: MOBILE APPS -->
+  <div class="modal-overlay" id="modal-mobile" onclick="closeModal(event, 'modal-mobile')">
+    <div class="modal-box coral">
+      <button class="modal-close" onclick="closeModalById('modal-mobile')">×</button>
+      <div class="modal-header">
+        <div class="modal-eyebrow">📱 Mobile Apps</div>
+        <h3>PWAs — No App Store Needed</h3>
+      </div>
+      <div class="modal-projects">
+        <a class="modal-project" href="https://asea-05.web.app" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">ASEA Inspector</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Field inspection app with multiple roles: cliente, dictaminador, admin, superadmin.</span>
+          <span class="modal-project-url">asea-05.web.app</span>
+        </a>
+        <div class="modal-project">
+          <div class="modal-project-top"><span class="modal-project-name">Mercado Negro — App</span><span class="modal-project-private">🔒 Private</span></div>
+          <span class="modal-project-desc">Internal app for managing recipes, ingredients, and cost calculations. Installs like a native app.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: DIGITAL CARDS -->
+  <div class="modal-overlay" id="modal-cards" onclick="closeModal(event, 'modal-cards')">
+    <div class="modal-box cyan-border">
+      <button class="modal-close" onclick="closeModalById('modal-cards')">×</button>
+      <div class="modal-header">
+        <div class="modal-eyebrow cyan">🪪 Digital Cards</div>
+        <h3>Live Card Examples</h3>
+      </div>
+      <div class="modal-projects">
+        <a class="modal-project cyan-hover" href="https://coordenadaviajes.com/tarjeta" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Aster Íñigo — Coordenada Viajes + Eureka</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Two-in-one card: travel agent + web studio.</span>
+          <span class="modal-project-url">coordenadaviajes.com/tarjeta</span>
+        </a>
+        <a class="modal-project cyan-hover" href="https://coordenadaviajes.com/tarjeta-martha" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Martha — Coordenada Viajes</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Travel advisor card with contact, social, and save-to-contacts.</span>
+          <span class="modal-project-url">coordenadaviajes.com/tarjeta-martha</span>
+        </a>
+        <a class="modal-project cyan-hover" href="https://salud-natural-luz.web.app/tarjeta-luz.html" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Salud Natural Luz</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Health and wellness brand card.</span>
+          <span class="modal-project-url">salud-natural-luz.web.app/tarjeta-luz.html</span>
+        </a>
+        <a class="modal-project cyan-hover" href="https://eurekawebsites.github.io/remodelaciones/" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Israel — Remodelaciones El Negro</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Construction and remodeling contractor card.</span>
+          <span class="modal-project-url">eurekawebsites.github.io/remodelaciones</span>
+        </a>
+        <a class="modal-project cyan-hover" href="https://eurekawebsites.github.io/tarjeta-mario/" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Mario Franco</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Educator and coach personal card.</span>
+          <span class="modal-project-url">eurekawebsites.github.io/tarjeta-mario</span>
+        </a>
+        <a class="modal-project cyan-hover" href="https://eurekawebsites.github.io/-teodoro-gonzalez/" target="_blank" rel="noopener">
+          <div class="modal-project-top"><span class="modal-project-name">Teodoro González</span><span class="modal-project-arrow">↗</span></div>
+          <span class="modal-project-desc">Professional services card.</span>
+          <span class="modal-project-url">eurekawebsites.github.io/-teodoro-gonzalez</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- LIGHTBOX -->
   <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
@@ -1146,10 +1333,29 @@
 
     // Lightbox
     function openLightbox() { document.getElementById('lightbox').classList.add('open'); }
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal(e, id) {
+      if (e.target === document.getElementById(id)) closeModalById(id);
+    }
+    function closeModalById(id) {
+      document.getElementById(id).classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
     function closeLightbox(e) {
       if (e.target === document.getElementById('lightbox')) document.getElementById('lightbox').classList.remove('open');
     }
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('open'); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        ['lightbox','modal-websites','modal-webapps','modal-mobile','modal-cards'].forEach(id => {
+          document.getElementById(id).classList.remove('open');
+        });
+        document.body.style.overflow = '';
+      }
+    });
 
     function handleFormSubmit(e) {
       e.preventDefault();
