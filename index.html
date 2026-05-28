@@ -586,8 +586,28 @@
         border-bottom: 1px solid var(--border); z-index: 199;
       }
       .nav-links.open a { font-size: 1rem; color: var(--text); }
-      .hero-stats { gap: 28px; }
+      .hero-stats { gap: 20px; }
+      .stat-num { font-size: 1.6rem; }
       footer { flex-direction: column; text-align: center; }
+
+      /* Modal on small screens */
+      .modal-box { padding: 24px 18px; border-radius: 12px; }
+      .modal-close { top: 10px; right: 12px; font-size: 1.5rem; }
+      .modal-header h3 { font-size: 1.1rem; }
+
+      /* Category cards: always 1 column on tiny screens */
+      .category-grid { grid-template-columns: 1fr; }
+      .category-card { padding: 28px 24px; }
+    }
+
+    @media (max-width: 420px) {
+      h1 { font-size: 2.4rem; }
+      .hero-stats { gap: 16px; }
+      .stat-num { font-size: 1.4rem; }
+      .stat-label { font-size: 0.7rem; }
+      section { padding: 72px clamp(16px, 5vw, 80px); }
+      .modal-box { padding: 20px 14px; }
+      .modal-project { padding: 14px 16px; }
     }
 
     /* ── CATEGORY CARDS ── */
@@ -749,8 +769,7 @@
       </div>
       <h1 id="heroH1">
         <span data-i18n="hero.h1a">We build things</span><br/>
-        <span data-i18n="hero.h1b">for the</span> <span class="accent" data-i18n="hero.h1c">web</span> <span data-i18n="hero.h1d">that</span><br/>
-        <span data-i18n="hero.h1e">actually</span> <span class="accent-cyan" data-i18n="hero.h1f">work.</span>
+        <span data-i18n="hero.h1b">for the</span> <span class="accent" data-i18n="hero.h1c">web</span> <span data-i18n="hero.h1d">that</span> <span data-i18n="hero.h1e">actually</span> <span class="accent-cyan" data-i18n="hero.h1f">work.</span>
       </h1>
       <p class="hero-sub fly-group" data-i18n="hero.sub">
         From landing pages to full-stack web apps — we design, build, and launch digital products that help businesses grow.
