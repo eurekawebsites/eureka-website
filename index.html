@@ -1046,9 +1046,10 @@
         <h3>PWAs — No App Store Needed</h3>
       </div>
       <div class="modal-projects">
-        <div class="modal-project">
+        <div class="modal-project" style="cursor:pointer" onclick="openLightbox()">
           <div class="modal-project-top"><span class="modal-project-name">Mercado Negro — App</span><span class="modal-project-private">🔒 Private</span></div>
           <span class="modal-project-desc">Internal app for managing recipes, ingredients, and cost calculations. Installs like a native app.</span>
+          <span style="font-size:0.72rem;color:var(--coral);margin-top:4px;display:block">📸 Tap to preview →</span>
         </div>
       </div>
     </div>
@@ -1095,7 +1096,7 @@
   <!-- LIGHTBOX -->
   <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
     <button class="lightbox-close" onclick="document.getElementById('lightbox').classList.remove('open')">×</button>
-    <img src="mercado-negro-mobile-app.jpg" alt="Mercado Negro App" />
+    <img src="mercado-negro-mobileapp.jpg" alt="Mercado Negro App" />
   </div>
 
   <!-- FOOTER -->
