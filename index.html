@@ -235,6 +235,8 @@
       line-height: 1.05;
       letter-spacing: -0.02em;
       margin-bottom: 28px;
+      word-break: keep-all;
+      overflow-wrap: normal;
     }
     h1 .accent { color: var(--coral); }
     h1 .accent-cyan { color: var(--cyan); }
@@ -600,8 +602,11 @@
       .category-card { padding: 28px 24px; }
     }
 
+    @media (max-width: 700px) {
+      h1 { font-size: clamp(1.9rem, 8vw, 2.8rem); }
+    }
     @media (max-width: 420px) {
-      h1 { font-size: 2rem; }
+      h1 { font-size: clamp(1.7rem, 7.5vw, 2.2rem); }
       .hero-stats { gap: 16px; }
       .stat-num { font-size: 1.4rem; }
       .stat-label { font-size: 0.7rem; }
@@ -769,8 +774,8 @@
       </div>
       <h1 id="heroH1">
         <span data-i18n="hero.h1a">We build things</span><br/>
-        <span style="white-space:nowrap"><span data-i18n="hero.h1b">for the</span> <span class="accent" data-i18n="hero.h1c">web</span> <span data-i18n="hero.h1d">that</span></span><br/>
-        <span style="white-space:nowrap"><span data-i18n="hero.h1e">actually</span> <span class="accent-cyan" data-i18n="hero.h1f">work.</span></span>
+        <span data-i18n="hero.h1b">for the</span> <span class="accent" data-i18n="hero.h1c">web</span> <span data-i18n="hero.h1d">that</span><br/>
+        <span data-i18n="hero.h1e">actually</span> <span class="accent-cyan" data-i18n="hero.h1f">work.</span>
       </h1>
       <p class="hero-sub fly-group" data-i18n="hero.sub">
         From landing pages to full-stack web apps — we design, build, and launch digital products that help businesses grow.
