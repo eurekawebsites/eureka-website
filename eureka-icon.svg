@@ -6,6 +6,6 @@
       <stop offset="100%" stop-color="#f0b8b0"/>
     </radialGradient>
   </defs>
-  <circle cx="100" cy="100" r="78" fill="url(#bg)" stroke="rgba(240,96,100,0.4)" stroke-width="2"/>
-  <image href="eureka-bird-1.svg" x="28" y="5" width="140" height="190"/>
+  <circle cx="80" cy="88" r="62" fill="url(#bg)" stroke="rgba(240,96,100,0.4)" stroke-width="2"/>
+  <image href="eureka-bird-1.svg" x="14" y="4" width="112" height="152"/>
 </svg>
